@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    /*To reset the default style sheet of the borwser*/
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header{
+    background: hsl(0, 0%, 9%);
+    padding: 0.2rem 1rem;
+    color:white;
+    display:flex;
+    font-size: 1.5rem;
+    width: 100%;
+    justify-content:space-between;
+}
+
+.footer{
+    background:hsl(0, 0%, 9%);
+    color:white;
+    text-align: center;
+    padding:0.5rem;
+    width:100%;
+    position:fixed;
+    bottom:0;
+}
+
+body{
+    font-family:'Montserrat';
+    overflow:hidden;
+    margin: 0;
+    background:lightgray;
+    height: 100%;
+}
+
+.utl1{
+    padding:0.2rem;
+}
+.heading{
+    text-align:center;
+    padding: 2rem 2rem;
+}
+
+.card-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.coach, .user{
+    margin:20px;
+    background-color: black;
+    border-radius: 15px;
+    width: 350px;
+    height:350px;
+    align-content:center;
+}
+
+.coach-img{
+    height:180px;
+    width:180px;
+    margin:2rem;
+}
+
+.user-img{
+    margin-top:2rem;
+    margin-left:-10rem;
+    margin-bottom:130px; ;
+    height: 20%;
+    width: 20%;
+}
+
+.btn {
+    width: 300px;
+    margin: 10px;
+  }
+  
