@@ -22,6 +22,77 @@ registerUser(request: any): Observable<any> {
 }
 */
 
+
+/*
+* Delete Bookings
+*/
+public rescheduleBookings(request:any,bookingId:string): Observable<any> {
+  const url = this.mappingService.getRescheduleBookingsUrl(bookingId);
+  return this.http.put<any[]>(url,request);
+}
+
+
+/*
+* Delete Bookings
+*/
+public deleteBookings(bookingId:string): Observable<any> {
+  const url = this.mappingService.getDeleteBookingsUrl(bookingId);
+  return this.http.delete<any[]>(url);
+}
+
+
+/*
+* Make Bookings
+*/
+public makeBookings(request:any, userId:string, coachId:string): Observable<any> {
+  const url = this.mappingService.getMakeBookingsUrl(userId,coachId);
+  return this.http.post<any[]>(url,request);
+}
+
+/*
+* Get User Bookings
+*/
+public getUserBookings(userId:string): Observable<any>{
+  const url = this.mappingService.getUserBookingsUrl(userId);
+  return this.http.get<any>(url);
+}
+
+
+
+/*
+* Get Coach Bookings
+*/
+public getCoachBookings(coachId:string): Observable<any>{
+  const url = this.mappingService.getCoachBookingsUrl(coachId);
+  return this.http.get<any>(url);
+}
+
+
+
+/*
+* User Profile
+*/
+public getUserProfile(userId:String): Observable<any>{
+  const url = this.mappingService.getUserProfileUrl(userId);
+  return this.http.get<any>(url);
+}
+
+/*
+* All Coaches 
+*/
+public getAllCoaches(): Observable<any>{
+  const url = this.mappingService.getAllCoachesUrl();
+  return this.http.get<any>(url);
+}
+
+/*
+* Coach Profile
+*/
+public getCoachProfile(coachId:String): Observable<any>{
+  const url = this.mappingService.getCoachProfileUrl(coachId);
+  return this.http.get<any>(url);
+}
+
 /*
 * User Registration
 */
