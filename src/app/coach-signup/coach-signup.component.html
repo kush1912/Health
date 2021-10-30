@@ -6,43 +6,69 @@
                 <span class = "form-heading">Life Coach Profile</span>
             </div>
             <div class = "form-container">
-                <form class= "form">
+                <form class= "form" [formGroup]="coachRegistrationForm" (submit)="handleSubmit()">
                     <div class = "input-wrap">
                         <div>
                             <label for = "name" class = "label">Name</label>
-                            <input type = "text" id = "name" class = "form-control" />
+                            <input type="text" formControlName="Name" id="name" class="form-control" />
+                            <p *ngIf="coachRegistrationForm.controls.Name.errors?.required && coachRegistrationForm.controls.Name.touched" class="text-danger">Required</p>
                         </div>
                         <div >
                             <label for = "password" class = "label">Password</label>
-                            <input type = "password" id = "password" class = "form-control" />
+                            <input type="password" formControlName="Password" id="password" class="form-control" />
+                            <p *ngIf="coachRegistrationForm.controls.Password.errors?.required && coachRegistrationForm.controls.Password.touched" class="text-danger">Required</p>
+                            <p *ngIf="coachRegistrationForm.controls.Password.errors?.minlength || coachRegistrationForm.controls.Password.errors?.maxlength" class="text-danger">Password length should be 5 to 10 Characters.</p>
                         </div>
                     </div >
                     <div class = "input-wrap">
                         <div >
                             <label for="dob" class = "label">Date of Birth</label>
-                            <input type ="date" id = "dob" class = "form-control" />
+                            <input type ="date" formControlName="DateOfBirth" id = "dob" class = "form-control" />
+                            <p *ngIf ="coachRegistrationForm.controls.DateOfBirth.errors?.required && coachRegistrationForm.controls.DateOfBirth.touched" class="text-danger">Required</p>
+                            <p *ngIf="coachRegistrationForm.controls.DateOfBirth.errors?.invalidDob && coachRegistrationForm.controls.DateOfBirth.errors?.dirty" class="text-danger">Age should be between 20 and 100 years</p>
                         </div>
                         <div class = "col-6">
                             <label for="gender" class = "label">Gender</label>
-                            <input type="radio" value = "M" name="Male" />Male &nbsp;
-                            <input type="radio" value = "F" name="Female" />Female
+                            <input type="radio" value = "M" formControlName="Gender" />Male &nbsp;
+                            <input type="radio" value = "F" formControlName="Gender" />Female
+                            <p *ngIf="coachRegistrationForm.controls.Gender.errors?.required && coachRegistrationForm.controls.Gender.touched" class="text-danger">Required</p>
                         </div>
                     </div>
                     <div class = "input-wrap">
                         <div>
                             <label for = "mob" class = "label">Mobile Number</label>
-                            <input type = "text" class = "form-control" />
+                            <input type="number" formControlName="MobileNumber" class="form-control" />
+                            <p *ngIf="coachRegistrationForm.controls.MobileNumber.errors?.invalidPhone && coachRegistrationForm.controls.MobileNumber.dirty" class="text-danger">Invalid Mobile Number!</p>
                         </div>
                         <div >
                             <label for = "speciality" class = "label">Speciality</label>
-                            <input type = "text" class = "form-control" />
+                            <input type = "text" formControlName="Speciality" class = "form-control" />
+                            <p *ngIf="coachRegistrationForm.controls.Speciality.errors?.required && coachRegistrationForm.controls.Speciality.touched" class="text-danger">Required</p>
+                            <p *ngIf="coachRegistrationForm.controls.Speciality.errors?.minlength || coachRegistrationForm.controls.Speciality.errors?.maxlength" class="text-danger">Speciality Should be 3 to 15 Characters long</p>
                         </div>
                     </div >
                     <div align = "center">
-                        <button class = "btn btn-success">Register</button>
+                        <button class = "btn btn-success"
+                        [disabled]="coachRegistrationForm.controls.Name.errors?.maxlength ||
+                                    coachRegistrationForm.controls.Name.errors?.minlength ||
+                                    coachRegistrationForm.controls.Password.errors?.minlength ||
+                                    coachRegistrationForm.controls.Password.errors?.maxlength ||
+                                    coachRegistrationForm.controls.DateOfBirth.errors?.invalidDob ||
+                                    coachRegistrationForm.controls.MobileNumber.errors?.invalidPhone ||
+                                    coachRegistrationForm.controls.Speciality.errors?.minlength ||
+                                    coachRegistrationForm.controls.Speciality.errors?.maxlength ||
+                                    coachRegistrationForm.controls.Gender.errors?.required">Register</button>
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div *ngIf="CoachId">
+        <div class="form-container text-light" align="center">
+            <i class="fas fa-user-md" style="font-size: 200px;"></i>
+            <h1 class="text-center">You are a Coach now!</h1>
+            <h2 class="text-center">Your Coach ID: {{ CoachId }}</h2>
+            <button (click)="handleCoachLogin()" class="btn btn-success">Login</button>
         </div>
     </div>
 </div>

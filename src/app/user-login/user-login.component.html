@@ -1,21 +1,29 @@
 <div class= "card-wrapper">
-    <div class = "coach form-control">
+    <div class = "user form-control">
         <div class="heading"> 
-            <img class = "form-img" src="../../assets/Images/User LogIn.jpg" alt="Coach">
-            <span class = "form-heading">User Profile</span>
+            <img class = "form-img" src="../../assets/Images/User LogIn.jpg" alt="User">
+            <span class = "form-heading" align="center">Login as User</span>
         </div>
-        <div>
+        <form class="form" [formGroup]="userLoginForm" (submit)="handleSubmit()">
             <div>
-                <label for = "name" class = "label">Name</label>
-                <input type = "text" class = "form-control" />
+                <div>
+                    <input type = "text" formControlName="UserId" placeholder="User-Id" class = "form-control" />
+                    <p *ngIf="userLoginForm.controls.UserId.errors?.required && userLoginForm.controls.UserId.touched" class="text-danger">Required</p> 
+                </div>
+            <br/>
+                <div>
+                    <input type = "password" formControlName="Password" placeholder="Password" class = "form-control" />
+                    <p *ngIf="userLoginForm.controls.Password.errors?.required && userLoginForm.controls.Password.errors?.touched" class="text-danger">Required</p>
+                </div>
             </div>
             <div >
-                <label for = "password" class = "label">Password</label>
-                <input type = "password" class = "form-control" />
+                <button class = "btn btn-success"
+                [disabled]="userLoginForm.controls.UserId.errors?.required ||
+                            userLoginForm.controls.Password.errors?.required">Login</button>
             </div>
-        </div>
-        <div >
-            <button class = "btn btn-success">Login</button>
-        </div>
+            <div>
+                <p *ngIf="!isAuthenticated" class="text-danger">Incorrect User-Id or Password!</p>
+            </div>    
+        </form>
     </div>
 </div>

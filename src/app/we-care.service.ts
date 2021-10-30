@@ -22,21 +22,40 @@ registerUser(request: any): Observable<any> {
 }
 */
 
+/*
+* User Registration
+*/
 public registerUser(request:any): Observable<any> {
   const url = this.mappingService.getRegisterUserUrl();
   return this.http.post<any[]>(url,request);
 }
 
+/*
+* User Login
+*/
 public loginUser(request:any): Observable<any> {
   const url = this.mappingService.getUserLoginUrl();
+  console.log(url);
   return this.http.post<any[]>(url,request);
 }
 
-
+/*
+* Coach Login
+*/
+public loginCoach(request:any): Observable<any> {
+  const url = this.mappingService.getCoachLoginUrl();
+  console.log(url);
+  return this.http.post<any[]>(url,request);
+}
 
 /*
 * Coach Registration
 */
+public registerCoach(request:any): Observable<any> {
+  const url = this.mappingService.getCoachRegisterUrl();
+  console.log(url);
+  return this.http.post<any[]>(url,request);
+}
 
 private handleError(err: HttpErrorResponse): Observable<any> {
   let errMsg = '';

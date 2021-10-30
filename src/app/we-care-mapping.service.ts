@@ -24,6 +24,20 @@ public getRegisterUserUrl(): string{
 public getUserLoginUrl(): string{
     return this.BASE_URL + this.LOGIN_USER;
   }
+
+/*
+* Coach Registration
+*/
+public getCoachRegisterUrl(): string{
+  return this.BASE_URL + this.REG_COACH;
+}
+
+/*
+* Coach Login
+*/
+public getCoachLoginUrl(): string{
+  return this.BASE_URL + this.LOGIN_COACH;
+}
   
 }
 

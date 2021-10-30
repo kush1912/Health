@@ -10,6 +10,12 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { CoachLoginComponent } from './coach-login/coach-login.component';
 import { WeCareMappingService } from './we-care-mapping.service';
 import { WeCareService } from './we-care.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoachHomeComponent } from './coach-home/coach-home.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { CoachProfileComponent } from './coach-home/coach-profile/coach-profile.component';
+import { UserProfileComponent } from './user-home/user-profile/user-profile.component';
+import { BookAppointmentComponent } from './user-home/book-appointment/book-appointment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +24,17 @@ import { WeCareService } from './we-care.service';
     UserSignupComponent,
     UserLoginComponent,
     CoachLoginComponent,
+    CoachHomeComponent,
+    UserHomeComponent,
+    CoachProfileComponent,
+    UserProfileComponent,
+    BookAppointmentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     WeCareService,

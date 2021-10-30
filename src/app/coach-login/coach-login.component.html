@@ -2,20 +2,28 @@
     <div class = "coach form-control">
         <div class="heading"> 
             <img class = "form-img" src="../../assets/Images/Life Coach LogIn.jpg" alt="Coach">
-            <span class = "form-heading">Coach Profile</span>
+            <span class = "form-heading" align="center">Login as Coach</span>
         </div>
-        <div>
+        <form class="form" [formGroup]="coachLoginForm" (submit)="handleSubmit()">
             <div>
-                <label for = "name" class = "label">Name</label>
-                <input type = "text" class = "form-control" />
+                <div>
+                    <input type = "text" formControlName="CoachId" placeholder="Coach-Id" class = "form-control" />
+                    <p *ngIf="coachLoginForm.controls.CoachId.errors?.required && coachLoginForm.controls.CoachId.touched" class="text-danger">Required</p> 
+                </div>
+            <br/>
+                <div>
+                    <input type = "password" formControlName="Password" placeholder="Password" class = "form-control" />
+                    <p *ngIf="coachLoginForm.controls.Password.errors?.required && coachLoginForm.controls.Password.errors?.touched" class="text-danger">Required</p>
+                </div>
             </div>
             <div >
-                <label for = "password" class = "label">Password</label>
-                <input type = "password" class = "form-control" />
+                <button class = "btn btn-success"
+                [disabled]="coachLoginForm.controls.CoachId.errors?.required ||
+                            coachLoginForm.controls.Password.errors?.required">Login</button>
             </div>
-        </div>
-        <div >
-            <button class = "btn btn-success">Login</button>
-        </div>
+            <div>
+                <p *ngIf="!isAuthenticated" class="text-danger">Incorrect User-Id or Password!</p>
+            </div>    
+        </form>
     </div>
 </div>

@@ -11,7 +11,7 @@ import { WeCareService } from '../we-care.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  private isAuthenticate:boolean = false;
+  isAuthenticated:boolean=true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +25,18 @@ export class UserLoginComponent implements OnInit {
   userLoginForm = this.formBuilder.group({
     UserId: ['',Validators.required],
     Password: ['',[Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
-  })
+  });
 
+  public handleSubmit(){
+    this.service.loginUser(this.userLoginForm.value).subscribe(
+      result => {
+        this.isAuthenticated=true;
+        //LocalStorage
+        this.route.navigate(['/userHome']);
+      },
+      error =>{
+        this.isAuthenticated=false;
+      }
+    );
+  }
 }
