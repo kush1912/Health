@@ -1,5 +1,5 @@
 <div>
-    <div class = "card-wrapper">
+    <div *ngIf="!CoachId; else elseBlock" class = "card-wrapper">
         <div class = "register-form-card">
             <div class="heading"> 
                 <img class = "form-img" src="../../assets/Images/Life Coach LogIn.jpg" alt="Coach">
@@ -24,13 +24,13 @@
                         <div >
                             <label for="dob" class = "label">Date of Birth</label>
                             <input type ="date" formControlName="DateOfBirth" id = "dob" class = "form-control" />
-                            <p *ngIf ="coachRegistrationForm.controls.DateOfBirth.errors?.required && coachRegistrationForm.controls.DateOfBirth.touched" class="text-danger">Required</p>
+                            <p *ngIf="coachRegistrationForm.controls.DateOfBirth.errors?.required && coachRegistrationForm.controls.DateOfBirth.touched" class="text-danger">Required</p>
                             <p *ngIf="coachRegistrationForm.controls.DateOfBirth.errors?.invalidDob && coachRegistrationForm.controls.DateOfBirth.errors?.dirty" class="text-danger">Age should be between 20 and 100 years</p>
                         </div>
                         <div class = "col-6">
-                            <label for="gender" class = "label">Gender</label>
-                            <input type="radio" value = "M" formControlName="Gender" />Male &nbsp;
-                            <input type="radio" value = "F" formControlName="Gender" />Female
+                            <label for="gender" class = "label">Gender</label><br/>
+                            <input type="radio" value = "M" formControlName="Gender" /><span style="color:white">Male</span> &nbsp; &nbsp;
+                            <input type="radio" value = "F" formControlName="Gender" /><span style="color:white">Female</span>
                             <p *ngIf="coachRegistrationForm.controls.Gender.errors?.required && coachRegistrationForm.controls.Gender.touched" class="text-danger">Required</p>
                         </div>
                     </div>
@@ -63,12 +63,12 @@
             </div>
         </div>
     </div>
-    <div *ngIf="CoachId">
+    <ng-template #elseBlock>
         <div class="form-container text-light" align="center">
             <i class="fas fa-user-md" style="font-size: 200px;"></i>
             <h1 class="text-center">You are a Coach now!</h1>
-            <h2 class="text-center">Your Coach ID: {{ CoachId }}</h2>
+            <h2 class="text-center">{{ CoachId }}</h2>
             <button (click)="handleCoachLogin()" class="btn btn-success">Login</button>
         </div>
-    </div>
+    </ng-template>
 </div>
