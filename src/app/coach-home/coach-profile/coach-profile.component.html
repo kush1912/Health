@@ -1,1 +1,13 @@
-<p>coach-profile works!</p>
+<div class="bookings-container" [style.backgroundColor]="'cadetblue'">
+    <div [ngSwitch]="data.gender">
+        <i *ngSwitchCase="'M'" class="fas fa-male" [style.fontSize.px]="200"></i>
+        <i *ngSwitchCase="'F'" class="fas fa-female" [style.fontSize.px]="200"></i>
+    </div>
+        
+    <div class="booking">
+        <h4>Coach ID: {{ data.coachID }}</h4>
+        <h6>Date of Birth: {{ data.dateOfBirth.substr(0, 10) }}</h6>
+        <h6>Mobile Number: {{ data.mobileNumber }}</h6>
+        <h6>Speciality: {{ data.speciality }}</h6>
+    </div>
+</div>

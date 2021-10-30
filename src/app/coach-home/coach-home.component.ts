@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { WeCareService } from '../we-care.service';
+import { Router } from '@angular/router';
+import { DataSharingService } from '../Shared/data-sharing.service';
 
 @Component({
   selector: 'app-coach-home',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoachHomeComponent implements OnInit {
 
-  constructor() { }
+  coachId:string="";
+  bookings: any[] = [];
+
+  constructor(private route: Router,
+              private service: WeCareService,
+              private dataService:DataSharingService){ }
 
   ngOnInit(): void {
+    this.coachId = this.dataService.getCoachId();
+    this.service.getCoachBookings(this.coachId).subscribe(
+      (data:any) => this.bookings = data,
+      error => console.log(error)
+    )
   }
 
 }

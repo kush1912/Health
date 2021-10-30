@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { WeCareService } from '../../we-care.service';
+import { Router } from '@angular/router';
+import { DataSharingService } from '../../Shared/data-sharing.service';
+import { validateDoa } from 'src/app/Shared/custom-validator';
 @Component({
   selector: 'app-book-appointment',
   templateUrl: './book-appointment.component.html',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookAppointmentComponent implements OnInit {
 
-  constructor() { }
+  booked:boolean=false;
+  constructor(private route: Router,
+    private service: WeCareService,
+    private dataService:DataSharingService,
+    private formBuilder:FormBuilder) { }
+  
+    ngOnInit(): void {
+  }
 
-  ngOnInit(): void {
+  appointmentForm:FormGroup =this.formBuilder.group({
+    DateOfAppointment:['',[validateDoa, Validators.required]],
+    Slot:['',[Validators.required]]
+  })
+
+  handleSubmit(){
+    event?.preventDefault()
+    const UserId = this.dataService.getUserId();
+    const CoachId = this.dataService.getCoachId();
+    this.service.makeBookings(this.appointmentForm.value,UserId,CoachId).subscribe(
+      data =>{
+        this.booked =true;
+      },
+      err =>{
+        console.log(err);
+      }
+    )
+  }
+
+  goBack(){
+    this.route.navigate(['/userHome']);
   }
 
 }

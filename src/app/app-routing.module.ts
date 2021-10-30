@@ -9,6 +9,9 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { CoachHomeComponent } from './coach-home/coach-home.component';
 import { CoachProfileComponent } from './coach-home/coach-profile/coach-profile.component';
 import { UserProfileComponent } from './user-home/user-profile/user-profile.component';
+import { BookAppointmentComponent } from './user-home/book-appointment/book-appointment.component';
+import { UserAppointmentComponent } from './user-home/user-appointment/user-appointment.component';
+import { RescheduleAppointmentComponent } from './user-home/reschedule-appointment/reschedule-appointment.component';
 
 const routes: Routes = [
   {path:"home", component: HomeComponent },
@@ -20,6 +23,11 @@ const routes: Routes = [
   {path:"coachHome", component: CoachHomeComponent},
   {path:"coachProfile", component: CoachProfileComponent},
   {path:"userProfile", component: UserProfileComponent},
+  { path: "bookAppointment", component: BookAppointmentComponent },
+  { path: "userAppointments", component: UserAppointmentComponent },
+  { path: "rescheduleAppointment", component: RescheduleAppointmentComponent },
+  { path: "userViewProfile", component: UserProfileComponent },
+  { path: "", pathMatch: "full", redirectTo: "/home" },
   {path:"",pathMatch:"full",redirectTo:"/home"}
 ];
 

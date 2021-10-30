@@ -1,5 +1,5 @@
 <div *ngIf="!booked" class="form-container" align="center">
-    <h1 class="text-center text-light"><i class="far fa-calendar-check" [style.fontSize.px]="100"></i> Proceed with your appointment</h1><br/>
+    <h1 class="text-center text-light"><i class="far fa-calendar-check" [style.fontSize.px]="100"></i> Reschedule your appointment</h1><br/>
     <form class="form" [formGroup]="appointmentForm" (submit)="handleSubmit()">
         <div class="col-7">
             <div align="left">
@@ -22,15 +22,15 @@
             </div>
         </div><br/>
         <div class="col-7" align="center" [style.marginRight.px]="20">
-            <button class="btn btn-primary btn-block" 
+            <button class="btn btn-success btn-block" 
                     [disabled]="appointmentForm.controls.appointmentDate.errors?.required ||
                                 appointmentForm.controls.appointmentDate.pristine ||
-                                appointmentForm.controls.slot.errors?.required">Book an appointment</button>
+                                appointmentForm.controls.slot.errors?.required">Reschedule the appointment</button>
         </div>
     </form>
 </div>
 
 <div *ngIf="booked" class="form-container" align="center">
-    <h1>Your appointment is booked successfully</h1>
+    <h1>Your appointment is rescheduled successfully</h1>
     <button (click)="goBack()" class="btn btn-primary">Go Back</button>
 </div>

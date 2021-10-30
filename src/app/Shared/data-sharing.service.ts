@@ -7,6 +7,7 @@ export class DataSharingService {
 
   coachId:string="";
   userId:string="";
+  bookingId:string="";
   constructor() { }
   
   setCoachId(data:string){
@@ -22,5 +23,12 @@ export class DataSharingService {
   
   getUserId(){
     return this.userId;
+  }
+  setBookingId(data:string){
+    this.bookingId = data;
+  }
+  
+  getBookingId(){
+    return this.bookingId;
   }
 }

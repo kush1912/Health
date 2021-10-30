@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
 import { WeCareService } from '../we-care.service';
+import { DataSharingService } from '../Shared/data-sharing.service';
 
 @Component({
   selector: 'app-coach-login',
@@ -15,12 +16,12 @@ export class CoachLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private service: WeCareService
+    private service: WeCareService,
+    private dataService:DataSharingService
   ) { }
 
   ngOnInit(): void {
   }
-
 
   coachLoginForm = this.formBuilder.group({
     CoachId: ['',Validators.required],
@@ -28,11 +29,11 @@ export class CoachLoginComponent implements OnInit {
   });
 
   public handleSubmit(){
+    this.dataService.setCoachId(this.coachLoginForm.value.CoachId);
     this.service.loginCoach(this.coachLoginForm.value).subscribe(
       result => {
         if(result){
           this.isAuthenticated=true;
-          //LocalStorage
           this.route.navigate(['/coachHome']);  
         }
       },

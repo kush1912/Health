@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
 import { WeCareService } from '../we-care.service';
-
+import { DataSharingService } from '../Shared/data-sharing.service';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -16,7 +16,8 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private service: WeCareService
+    private service: WeCareService,
+    private dataService:DataSharingService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class UserLoginComponent implements OnInit {
   });
 
   public handleSubmit(){
+    this.dataService.setUserId(this.userLoginForm.value.UserId);
     this.service.loginUser(this.userLoginForm.value).subscribe(
       result => {
         this.isAuthenticated=true;
