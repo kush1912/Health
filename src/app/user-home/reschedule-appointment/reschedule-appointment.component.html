@@ -1,33 +1,38 @@
-<div *ngIf="!booked" class="form-container" align="center">
-    <h1 class="text-center text-light"><i class="far fa-calendar-check" [style.fontSize.px]="100"></i> Reschedule your appointment</h1><br/>
-    <form class="form" [formGroup]="appointmentForm" (submit)="handleSubmit()">
-        <div class="col-7">
-            <div align="left">
-                <label for="doa">Date of Appointment</label>
+<header-user></header-user>
+<div class="card-wrapper">
+    <div *ngIf="!booked" class="book-appt-container" align="center">
+        <h1 class="text-center form-heading"><i class="far fa-calendar-check" [style.fontSize.px]="40"></i> Reschedule your appointment</h1><br/>
+        <form class="form booking-appt" [formGroup]="appointmentForm" (submit)="handleSubmit()">
+            <div class="col-7">
+                <div align="left">
+                    <label class="label" for="doa">Date of Appointment</label>
+                </div>
+                <input type="date" id="doa" formControlName="DateOfAppointment" class="form-control" />
+                <p *ngIf="appointmentForm.controls.DateOfAppointment.errors?.required && appointmentForm.controls.DateOfAppointment.touched" class="text-danger">Required</p>
+                <p *ngIf="appointmentForm.controls.DateOfAppointment.errors?.invalidDoa && appointmentForm.controls.DateOfAppointment.dirty" class="text-danger">Date should be any upcoming 7 days</p>
+            </div><br/>
+            <div class="col-7" align="left">
+                <label class="label">Preferred Slot</label>
+                <div class="slot" align="left">
+                    <div>
+                        <input type="radio" formControlName="Slot" value="9 AM to 10 AM" /> 9 AM to 10 AM &nbsp;
+                        <input type="radio" formControlName="Slot" value="11 AM to 12 PM"  /> 11 AM to 12 PM  
+                        <input type="radio" formControlName="Slot" value="2 PM to 3 PM"  /> 2 PM to 3 PM &nbsp; <br/>
+                    </div>
+                    <div>
+                        <input type="radio" formControlName="Slot" value="3 PM to 4 PM"  /> 3 PM to 4 PM &nbsp;
+                        <input type="radio" formControlName="Slot" value="4 PM to 5 PM"  /> 4 PM to 5 PM 
+                        <p *ngIf="appointmentForm.controls.Slot.errors?.required && appointmentForm.controls.Slot.touched" class="text-danger text-center">Required</p>
+                    </div>
+                </div>
+            </div><br/>
+            <div class="col-7" align="center">
+                <button class="btn btn-success btn-block" 
+                        [disabled]="appointmentForm.controls.DateOfAppointment.errors?.required ||
+                                    appointmentForm.controls.Slot.errors?.required">Reschedule the appointment</button>
             </div>
-            <input type="date" id="doa" formControlName="appointmentDate" class="form-control" />
-            <p *ngIf="appointmentForm.controls.appointmentDate.errors?.required && appointmentForm.controls.appointmentDate.touched" class="text-danger">Required</p>
-            <p *ngIf="appointmentForm.controls.appointmentDate.errors?.invalidDoa && appointmentForm.controls.appointmentDate.dirty" class="text-danger">Date should be any upcoming 7 days</p>
-        </div><br/>
-        <div class="col-7" align="left">
-            <label>Preferred Slot</label>
-            <div align="left">
-                <input type="radio" formControlName="slot" value="9 AM to 10 AM" /> 9 AM to 10 AM &nbsp;
-                <input type="radio" formControlName="slot" value="10 AM to 11 AM"  /> 10 AM to 11 AM &nbsp; 
-                <input type="radio" formControlName="slot" value="11 AM to 12 PM"  /> 11 AM to 12 PM <br/> 
-                <input type="radio" formControlName="slot" value="2 PM to 3 PM"  /> 2 PM to 3 PM &nbsp;
-                <input type="radio" formControlName="slot" value="3 PM to 4 PM"  /> 3 PM to 4 PM &nbsp;
-                <input type="radio" formControlName="slot" value="4 PM to 5 PM"  /> 4 PM to 5 PM 
-                <p *ngIf="appointmentForm.controls.slot.errors?.required && appointmentForm.controls.slot.touched" class="text-danger text-center">Required</p>
-            </div>
-        </div><br/>
-        <div class="col-7" align="center" [style.marginRight.px]="20">
-            <button class="btn btn-success btn-block" 
-                    [disabled]="appointmentForm.controls.appointmentDate.errors?.required ||
-                                appointmentForm.controls.appointmentDate.pristine ||
-                                appointmentForm.controls.slot.errors?.required">Reschedule the appointment</button>
-        </div>
-    </form>
+        </form>
+    </div>    
 </div>
 
 <div *ngIf="booked" class="form-container" align="center">

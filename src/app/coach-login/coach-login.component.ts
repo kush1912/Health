@@ -29,11 +29,12 @@ export class CoachLoginComponent implements OnInit {
   });
 
   public handleSubmit(){
-    this.dataService.setCoachId(this.coachLoginForm.value.CoachId);
     this.service.loginCoach(this.coachLoginForm.value).subscribe(
       result => {
         if(result){
           this.isAuthenticated=true;
+          //this.dataService.setCoachId(this.coachLoginForm.value.CoachId);
+          localStorage.setItem("coachId", this.coachLoginForm.value.CoachId);
           this.route.navigate(['/coachHome']);  
         }
       },

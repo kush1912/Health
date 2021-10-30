@@ -7,8 +7,8 @@ html{
 
 *{
     /*To reset the default style sheet of the borwser*/
-    padding: 0;
-    margin:0;
+    padding: 10;
+    margin:10;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
@@ -36,7 +36,7 @@ html{
 body{
     font-family:'Montserrat';
     overflow:hidden;
-    margin: 0;
+    margin-bottom: 5rem;
     background:lightgray;
     height: 100%;
 }
@@ -71,6 +71,47 @@ body{
     height:350px;
     align-content:center;
 }
+.bookings-container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .booking-appt {
+    width: 500px;
+    height:auto;
+    padding: 20px;
+    align-content:center;
+  } 
+  .book-appt-container{
+    height:auto;
+    width:50%;
+    background-color:black;
+    border-radius:15px;
+    align-content:center;
+}
+
+.profile {
+    background-color: black;
+    border-radius: 15px;
+    width: 300px;
+    height:600px;
+    padding: 10px;
+    margin: 10px;
+    align-content:center;
+  } 
+
+.booking {
+    background-color: black;
+    border-radius: 15px;
+    width: 300px;
+    height:300px;
+    padding: 10px;
+    margin: 10px;
+    align-content:center;
+  } 
 
 .coach-img{
     height:180px;
@@ -119,8 +160,70 @@ body{
     margin-bottom:2rem;
 }
 
+.info{
+    color: whitesmoke;
+    margin: -10px;
+}
+
+.appt-data{
+    color: whitesmoke;
+    text-align: center;
+}
+
+.slot{
+    color: whitesmoke;
+    padding: 1rem;
+    text-indent: 50px;
+}
+
 .btn {
     width: 325px;
     margin-top: 20px;
+    
   }
 
+
+.btn-b{
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+.btn-a{
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: -50px;
+  }
+
+.booking-pic{
+    height:100px;
+    width: 100px;
+    margin-top: 1rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color:hsl(0, 0%, 9%);
+  }
+  
+li {
+    float: left;
+  }
+  
+li span {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+li span:hover {
+    background-color: #333;
+    cursor: pointer;
+  }

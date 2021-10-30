@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div>
     <div *ngIf="!CoachId; else elseBlock" class = "card-wrapper">
         <div class = "register-form-card">
@@ -57,7 +59,7 @@
     </div>
     <ng-template #elseBlock>
         <div class="form-container text-light" align="center">
-            <i class="fas fa-user-md" style="font-size: 200px;"></i>
+            <img class="booking-pic" src="./../../assets/Images/Life Coach LogIn.jpg" alt="Coach">
             <h1 class="text-center">You are a Coach now!</h1>
             <h2 class="text-center">{{ CoachId }}</h2>
             <button (click)="handleCoachLogin()" class="btn btn-success">Login</button>

@@ -1,0 +1,18 @@
+<header-user></header-user>
+
+<div class="bookings-container">
+    <div class="booking" >
+        <div [ngSwitch]="data.Gender" class="text-center">
+            <img class="booking-pic" *ngSwitchCase="'M'" src="./../../assets/Images/male.png" alt="Male">
+            <img class="booking-pic" *ngSwitchCase="'F'" src="./../../assets/Images/female.png" alt="Female">
+        </div>
+            
+        <div class="info" align="center">
+            <h3>{{ data.Name }}</h3>
+            <h5>User ID: {{ data.UserId }}</h5>
+            <h5>DOB: {{ data.DateOfBirth.substr(0, 10) }}</h5>
+            <h5>Contact: {{ data.MobileNumber }}</h5>
+            <h6>Address: {{ data.City + ", " + data.State + ", " + data.Country }}</h6>
+        </div>
+    </div>
+</div>

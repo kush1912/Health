@@ -1,13 +1,17 @@
-<div class="bookings-container text-light">
+<header-user></header-user>
+
+<div class="bookings-container">
     <div class="booking" [style.width.px]="300" *ngFor="let item of coaches">
-        <h1 [ngSwitch]="item.gender" class="text-center">
-            <i *ngSwitchCase="'M'" class="fas fa-male text-success"></i>
-            <i *ngSwitchCase="'F'" class="fas fa-female text-danger"></i>
-        </h1>
-        <h3>{{ item.name }}</h3>
-        <h5>Coach ID: {{ item.coaochID }}</h5>
-        <h5>Cell Number: {{ item.mobileNumber }}</h5>
-        <h5>Speciality: {{ item.speciality }}</h5>
-        <button class="btn btn-primary" [style.marginLeft.px]="-10" (click)="bookAppointment(item.coachID)">Book an appointment</button> 
+        <div [ngSwitch]="item.Gender" class="text-center">
+            <img class="booking-pic" *ngSwitchCase="'M'" src="./../../assets/Images/male.png" alt="Male">
+            <img class="booking-pic" *ngSwitchCase="'F'" src="./../../assets/Images/female.png" alt="Female">
+        </div>
+        <div class="info" align="center">
+            <h3>{{ item.Name }}</h3>
+            <h5>Coach ID: {{ item.CoachId }}</h5>
+            <h5>Mobile Number: {{ item.MobileNumber }}</h5>
+            <h5>Speciality: {{ item.Speciality }}</h5> 
+            <button class="btn-b btn-primary" (click)="bookAppointment(item.coachID)">Book an Appointment</button> 
+        </div>
     </div>
 </div>

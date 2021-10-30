@@ -33,7 +33,8 @@ export class UserLoginComponent implements OnInit {
     this.service.loginUser(this.userLoginForm.value).subscribe(
       result => {
         this.isAuthenticated=true;
-        //LocalStorage
+        localStorage.setItem("userId",this.userLoginForm.value.UserId);
+        //this.dataService.setUserId(this.userLoginForm.value.UserId);
         this.route.navigate(['/userHome']);
       },
       error =>{

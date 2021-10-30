@@ -64,7 +64,7 @@ public getAllCoachesUrl(): string{
 * Make Booking
 */
 public getMakeBookingsUrl(userId:string, coachId:String): string{
-  return this.BASE_URL + this.MAKE_BOOKING + userId + coachId;
+  return this.BASE_URL + this.MAKE_BOOKING + userId +"/"+ coachId;
 }
 
 /*

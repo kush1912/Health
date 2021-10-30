@@ -21,18 +21,19 @@ export class RescheduleAppointmentComponent implements OnInit {
   }
 
   booked: boolean = false
-
+  bookingId:string="";
     appointmentForm: FormGroup = this.formBuilder.group({
-        appointmentDate: ['', [validateDoa, Validators.required]],
-        slot: ['', Validators.required]
+      DateOfAppointment: ['', [validateDoa, Validators.required]],
+      Slot: ['', Validators.required]
     })
 
     handleSubmit() {
         event?.preventDefault()
-        const userId = this.dataService.getUserId();
-        const coachId = this.dataService.getCoachId();
-        const bookingId =this.dataService.getBookingId();
-        this.service.rescheduleBookings(this.appointmentForm.value, bookingId ).subscribe(
+        const userId = String(localStorage.getItem('userId')); //this.dataService.getUserId();
+        const coachId = String(localStorage.getItem('coachId')); //this.dataService.getCoachId();
+        //this.dataService.getBookingId();
+        const bookingId =localStorage.getItem('bookingId');
+        this.service.rescheduleBookings(this.appointmentForm.value, this.bookingId ).subscribe(
             data => this.booked = true,
             err => console.log(err)
         )

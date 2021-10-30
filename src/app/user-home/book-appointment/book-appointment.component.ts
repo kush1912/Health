@@ -26,11 +26,13 @@ export class BookAppointmentComponent implements OnInit {
   })
 
   handleSubmit(){
-    event?.preventDefault()
-    const UserId = this.dataService.getUserId();
-    const CoachId = this.dataService.getCoachId();
+    const UserId = String(localStorage.getItem("userId"));
+    //this.dataService.getUserId();
+    const CoachId = String(localStorage.getItem("coachId"));
+    //this.dataService.getCoachId();
     this.service.makeBookings(this.appointmentForm.value,UserId,CoachId).subscribe(
       data =>{
+        console.log(data);
         this.booked =true;
       },
       err =>{

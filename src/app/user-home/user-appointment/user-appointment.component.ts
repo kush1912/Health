@@ -18,13 +18,13 @@ export class UserAppointmentComponent implements OnInit {
     private formBuilder:FormBuilder) { }
 
     loading: boolean = true
-    userId: string = String(localStorage.getItem("userId"))
+    UserId: string = String(localStorage.getItem("userId"))
     data: any = ""
 
     ngOnInit() {
-        this.service.getUserBookings(this.userId).subscribe(
+        this.service.getUserBookings(this.UserId).subscribe(
             (data: any) => {
-                this.data = data
+                this.data = data.data['user_appointments']
                 this.loading = false    
             },
             err => console.log(err)
@@ -33,7 +33,7 @@ export class UserAppointmentComponent implements OnInit {
 
     rescheduleAppointment(bookingId: string) {
         localStorage.setItem("bookingId", bookingId)
-        this.dataService.setBookingId(bookingId);
+        //this.dataService.setBookingId(bookingId);
         this.route.navigate(['/rescheduleAppointment'])
     }
 

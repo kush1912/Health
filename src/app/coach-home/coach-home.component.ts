@@ -10,7 +10,7 @@ import { DataSharingService } from '../Shared/data-sharing.service';
 })
 export class CoachHomeComponent implements OnInit {
 
-  coachId:string="";
+  coachId:string=String(localStorage.getItem('coachId'));
   bookings: any[] = [];
 
   constructor(private route: Router,
@@ -18,9 +18,9 @@ export class CoachHomeComponent implements OnInit {
               private dataService:DataSharingService){ }
 
   ngOnInit(): void {
-    this.coachId = this.dataService.getCoachId();
+    //this.coachId = this.dataService.getCoachId();
     this.service.getCoachBookings(this.coachId).subscribe(
-      (data:any) => this.bookings = data,
+      (data:any) => this.bookings = data.data['coach_appointments'],
       error => console.log(error)
     )
   }

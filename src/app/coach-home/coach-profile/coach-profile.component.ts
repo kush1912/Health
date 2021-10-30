@@ -7,18 +7,18 @@ import { WeCareService } from '../../we-care.service';
   styleUrls: ['./coach-profile.component.css']
 })
 export class CoachProfileComponent implements OnInit {
-  coachId: string = String(localStorage.getItem("coachId"))
+  CoachId: string = String(localStorage.getItem("coachId"))
   data: any = ""
   constructor(private route: Router,
               private service: WeCareService) { }
 
   ngOnInit(): void {
-    this.service.getCoachProfile(this.coachId).subscribe(
+    this.service.getCoachProfile(this.CoachId).subscribe(
       data => {
-          this.data = data
+          this.data = data.data['coach_details'];
       },
       err => console.log(err)
-  )
+    )
   }
 
 }

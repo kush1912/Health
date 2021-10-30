@@ -18,6 +18,9 @@ import { UserProfileComponent } from './user-home/user-profile/user-profile.comp
 import { BookAppointmentComponent } from './user-home/book-appointment/book-appointment.component';
 import { UserAppointmentComponent } from './user-home/user-appointment/user-appointment.component';
 import { RescheduleAppointmentComponent } from './user-home/reschedule-appointment/reschedule-appointment.component';
+import { HeaderCoachComponent } from './header-coach.component';
+import { HeaderUserComponent } from './header-user.component';
+import { HeaderComponent } from './header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,9 @@ import { RescheduleAppointmentComponent } from './user-home/reschedule-appointme
     BookAppointmentComponent,
     UserAppointmentComponent,
     RescheduleAppointmentComponent,
+    HeaderUserComponent,
+    HeaderCoachComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

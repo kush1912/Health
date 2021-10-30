@@ -1,14 +1,14 @@
-<div class="bookings-container text-light">
-    <div class="booking" [style.width.px]="300" *ngFor="let item of data">
-        <h3 class="text-left">Appointment Date:</h3>
-        <h3>{{ item.appointmentDate.substr(0, 10) }}</h3>
-        <h3>{{ item.name }}</h3>
-        <h5>Slot: {{ item.slot }}</h5><br/>
-        <h6>Booking ID: {{ item.bookingID }}</h6>
-        <h6>Coach ID: {{ item.coachID }}</h6>
-        <h6>User ID: {{ item.userID }}</h6>
-        <button class="btn btn-primary" [style.marginLeft.px]="-10" (click)="rescheduleAppointment(item.bookingID)">Reschedule the appointment</button>
-        <button class="btn btn-danger" [style.marginLeft.px]="-10" (click)="deleteAppointment(item.bookingID)">Delete the appointment</button>
+<header-user></header-user>
+
+<div class="bookings-container">
+    <div class="booking appt-data" [style.width.px]="300" *ngFor="let item of data">
+        <h4>Appointment Date:{{ item.AppointmentDate.substr(0, 10) }}</h4>
+        <h4>Slot: {{ item.Slot }}</h4>
+        <h6>Booking ID: {{ item.BookingId }}</h6>
+        <h6>Coach ID: {{ item.CoachId }}</h6>
+        <h6>User ID: {{ item.UserId }}</h6>
+        <button class="btn-a btn-primary" (click)="rescheduleAppointment(item.BookingId)">Reschedule the appointment</button>
+        <button class="btn-a btn-danger" (click)="deleteAppointment(item.BookingId)">Delete the appointment</button>
     </div>
 </div> 
 <div align="center">

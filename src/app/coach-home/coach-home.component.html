@@ -1,12 +1,11 @@
-<!-- <h1 class="text-center text-primary display-1">{{ coachId }}</h1> -->
+<header-coach></header-coach>
 
-<div *ngIf="bookings.length" class="bookings-container text-light">
-    <div class="booking" *ngFor="let item of bookings">
-        <h4>Appointment Date:</h4>
-        <h4>{{ item.appointmentDate.substr(0, 10) }}</h4>
-        <h3>Slot: {{ item.slot }} </h3><br/>
-        <h6>Booking ID: {{ item.bookingID }}</h6>
-        <h6>User ID: {{ item.userID }}</h6>
+<div *ngIf="bookings.length" class="bookings-container">
+    <div class="booking appt-data" [style.height.px]="200" *ngFor="let item of bookings">
+        <h4>Appointment Date:{{ item.AppointmentDate.substr(0, 10) }}</h4>
+        <h4>Slot: {{ item.Slot }} </h4><br/>
+        <h5>Booking ID: {{ item.BookingId }}</h5>
+        <h5>User ID: {{ item.UserId }}</h5>
     </div>
 </div>
 
