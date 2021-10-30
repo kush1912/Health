@@ -1,5 +1,5 @@
 <div>
-    <div class = "card-wrapper">
+    <div *ngIf="!UserId; else elseBlock" class = "card-wrapper">
         <div class = "register-form-card">
             <div class="heading"> 
                 <img class = "form-img" src="../../assets/Images/User LogIn.jpg" alt="Coach">
@@ -10,59 +10,81 @@
                     <div class = "input-wrap">
                         <div>
                             <label for = "name" class = "label">Name</label>
-                            <input type = "text" id = "name" class = "form-control" />
+                            <input type = "text" formControlName="Name" id = "name" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.Name.errors?.required && userRegistrationForm.controls.Name.touched" class="text-danger">Required</p>
                         </div>
                         <div >
                             <label for = "password" class = "label">Password</label>
-                            <input type = "password" id = "password" class = "form-control" />
+                            <input type = "password" formControlName="Password" id = "password" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.Password.errors?.required && userRegistrationForm.controls.Password.touched" class="text-danger">Required</p>
+                            <p *ngIf="userRegistrationForm.controls.Password.errors?.minlength || userRegistrationForm.controls.Password.errors?.maxlength" class="text-danger">Password length should be 5 to 10 Characters.</p>
                         </div>
                     </div >
                     <div class = "input-wrap">
                         <div>
                             <label for = "mob" class = "label">Mobile Number</label>
-                            <input type = "text" class = "form-control" />
+                            <input type="number" formControlName="MobileNumber"  class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.MobileNumber.errors?.invalidPhone && userRegistrationForm.controls.MobileNumber.dirty" class="text-danger">Invalid Mobile Number!</p>
                         </div>
                         <div >
                             <label for = "email" class = "label">Email</label>
-                            <input type = "email" class = "form-control" />
+                            <input type = "email" formControlName="Email" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.Email.errors?.required && userRegistrationForm.controls.Email.touched" class="text-danger">Required</p>
+                            <p *ngIf="userRegistrationForm.controls.Email.errors?.email" class="text-danger">Invalid Email</p>
                         </div>
                     </div >
                     <div class = "input-wrap">
                         <div >
                             <label for="dob" class = "label">Date of Birth</label>
-                            <input type ="date" id = "dob" class = "form-control" />
+                            <input type ="date" formControlName="DateOfBirth" id = "dob" class = "form-control" />
+                            <p *ngIf ="userRegistrationForm.controls.DateOfBirth.errors?.required && userRegistrationForm.controls.DateOfBirth.touched" class="text-danger">Required</p>
+                            <p *ngIf="userRegistrationForm.controls.DateOfBirth.errors?.invalidDob && userRegistrationForm.controls.DateOfBirth.errors?.dirty" class="text-danger">Age should be between 20 and 100 years</p>
                         </div>
                         <div class = "col-6">
-                            <label for="gender" class = "label">Gender</label>
-                            <input type="radio" value = "M" name="Male" />Male &nbsp;
-                            <input type="radio" value = "F" name="Female" />Female
+                            <label for="gender" class = "label">Gender</label><br/>
+                            <input type="radio" value = "M" formControlName="Gender" /><span style="color:white">Male</span> &nbsp; &nbsp;
+                            <input type="radio" value = "F" formControlName="Gender" /><span style="color:white">Female</span>
+                            <p *ngIf="userRegistrationForm.controls.Gender.errors?.required && userRegistrationForm.controls.Gender.touched" class="text-danger">Required</p>
                         </div>
                     </div>
                     <div class = "input-wrap">
                         <div>
                             <label for = "pincode" class = "label">Pincode</label>
-                            <input type = "text" class = "form-control" />
+                            <input type = "number" formControlName="PinCode" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.PinCode.errors?.minlength || userRegistrationForm.controls.PinCode.errors?.maxlength" class="text-danger">Invalid PinCode</p>
                         </div>
                         <div >
-                            <label for = "city" class = "label">City</label>
-                            <input type = "text" class = "form-control" />
+                            <label for = "City" class = "label">City</label>
+                            <input type = "text" formControlName="City" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.City.errors?.required && userRegistrationForm.controls.City.touched" class="text-danger">Required</p>
                         </div>
-                    </div >
+                    </div>
                     <div class = "input-wrap">
                         <div>
-                            <label for = "state" class = "label">State</label>
-                            <input type = "text" class = "form-control" />
+                            <label for = "State" class = "label">State</label>
+                            <input type = "text" formControlname="State" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.State.errors?.required && userRegistrationForm.controls.State.touched" class="text-danger">Required</p>
                         </div>
                         <div >
                             <label for = "country" class = "label">Country</label>
-                            <input type = "email" class = "form-control" />
+                            <input type = "text" formControlName="Country" class = "form-control" />
+                            <p *ngIf="userRegistrationForm.controls.Country.errors?.required && userRegistrationForm.controls.Country.touched" class="text-danger">Required</p>
                         </div>
                     </div >
                     <div align = "center">
-                        <button class = "btn btn-success">Register</button>
+                        <button class = "btn btn-success" 
+                        [disabled]="!userRegistrationForm.valid">Register</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <ng-template #elseBlock>
+        <div class="form-container text-light" align="center">
+            <i class="fas fa-user-md" style="font-size: 200px;"></i>
+            <h1 class="text-center">You are a User now!</h1>
+            <h2 class="text-center">{{ UserId }}</h2>
+            <button (click)="handleUserLogin()" class="btn btn-success">Login</button>
+        </div>
+    </ng-template>
 </div>

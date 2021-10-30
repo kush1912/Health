@@ -24,16 +24,16 @@ export class UserSignupComponent implements OnInit {
 
   userRegistrationForm = this.formBuilder.group({
     Name:['',[Validators.required]],
-    Password:['',[Validators.required]], 
+    Password:['',[Validators.required,Validators.maxLength(10),Validators.minLength(5)]], 
     DateOfBirth:['',[validateDob]],
     Gender: ['',[Validators.required]],
     MobileNumber: ['',[validatePhone,Validators.required]],
     Email:['',[Validators.email,Validators.required]], 
-    PinCode:['',[validatePincode]], 
+    PinCode:['',[Validators.required,Validators.minLength(6),Validators.maxLength]], 
     City:['',[Validators.required]], 
     State:['',[Validators.required]],
     Country:['',[Validators.required]]
-  })
+  });
 
   handleSubmit(){
     this.service.registerUser(this.userRegistrationForm.value).subscribe(

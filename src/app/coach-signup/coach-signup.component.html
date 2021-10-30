@@ -22,10 +22,10 @@
                     </div >
                     <div class = "input-wrap">
                         <div >
-                            <label for="dob" class = "label">Date of Birth</label>
-                            <input type ="date" formControlName="DateOfBirth" id = "dob" class = "form-control" />
+                            <label for="DateOfBirth" class = "label">Date of Birth</label>
+                            <input type ="date" formControlName="DateOfBirth" id = "DateOfBirth" class = "form-control" />
                             <p *ngIf="coachRegistrationForm.controls.DateOfBirth.errors?.required && coachRegistrationForm.controls.DateOfBirth.touched" class="text-danger">Required</p>
-                            <p *ngIf="coachRegistrationForm.controls.DateOfBirth.errors?.invalidDob && coachRegistrationForm.controls.DateOfBirth.errors?.dirty" class="text-danger">Age should be between 20 and 100 years</p>
+                            <p *ngIf="coachRegistrationForm.controls.DateOfBirth.errors?.invalidDob && coachRegistrationForm.controls.DateOfBirth.dirty" class="text-danger">Age should be between 20 and 100 years</p>
                         </div>
                         <div class = "col-6">
                             <label for="gender" class = "label">Gender</label><br/>
@@ -49,15 +49,7 @@
                     </div >
                     <div align = "center">
                         <button class = "btn btn-success"
-                        [disabled]="coachRegistrationForm.controls.Name.errors?.maxlength ||
-                                    coachRegistrationForm.controls.Name.errors?.minlength ||
-                                    coachRegistrationForm.controls.Password.errors?.minlength ||
-                                    coachRegistrationForm.controls.Password.errors?.maxlength ||
-                                    coachRegistrationForm.controls.DateOfBirth.errors?.invalidDob ||
-                                    coachRegistrationForm.controls.MobileNumber.errors?.invalidPhone ||
-                                    coachRegistrationForm.controls.Speciality.errors?.minlength ||
-                                    coachRegistrationForm.controls.Speciality.errors?.maxlength ||
-                                    coachRegistrationForm.controls.Gender.errors?.required">Register</button>
+                        [disabled]="!coachRegistrationForm.valid">Register</button>
                     </div>
                 </form>
             </div>
