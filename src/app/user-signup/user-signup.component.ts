@@ -29,7 +29,7 @@ export class UserSignupComponent implements OnInit {
     Gender: ['',[Validators.required]],
     MobileNumber: ['',[validatePhone,Validators.required]],
     Email:['',[Validators.email,Validators.required]], 
-    PinCode:['',[Validators.required,Validators.minLength(6),Validators.maxLength]], 
+    PinCode:['',[Validators.required]], 
     City:['',[Validators.required]], 
     State:['',[Validators.required]],
     Country:['',[Validators.required]]

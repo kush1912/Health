@@ -53,7 +53,7 @@
                         <div>
                             <label for = "pincode" class = "label">Pincode</label>
                             <input type = "number" formControlName="PinCode" class = "form-control" />
-                            <p *ngIf="userRegistrationForm.controls.PinCode.errors?.minlength || userRegistrationForm.controls.PinCode.errors?.maxlength" class="text-danger">Invalid PinCode</p>
+                            <p *ngIf="userRegistrationForm.controls.PinCode.errors?.required && userRegistrationForm.controls.PinCode.touched" class="text-danger">Required</p>
                         </div>
                         <div >
                             <label for = "City" class = "label">City</label>
@@ -64,7 +64,7 @@
                     <div class = "input-wrap">
                         <div>
                             <label for = "State" class = "label">State</label>
-                            <input type = "text" formControlname="State" class = "form-control" />
+                            <input type = "text" formControlName="State" class = "form-control" />
                             <p *ngIf="userRegistrationForm.controls.State.errors?.required && userRegistrationForm.controls.State.touched" class="text-danger">Required</p>
                         </div>
                         <div >
@@ -83,7 +83,7 @@
     </div>
     <ng-template #elseBlock>
         <div class="form-container text-light" align="center">
-            <i class="fas fa-user-md" style="font-size: 200px;"></i>
+            <img class="booking-pic" src="./../../assets/Images/User LogIn.jpg" alt="Coach">
             <h1 class="text-center">You are a User now!</h1>
             <h2 class="text-center">{{ UserId }}</h2>
             <button (click)="handleUserLogin()" class="btn btn-success">Login</button>
