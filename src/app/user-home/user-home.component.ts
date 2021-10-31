@@ -29,6 +29,7 @@ export class UserHomeComponent implements OnInit {
   }
 
   bookAppointment(coachId:string){
+    console.log(coachId);
     localStorage.setItem("coachId",coachId);
     //this.dataService.setCoachId(coachId);
     this.route.navigate(['/bookAppointment']);

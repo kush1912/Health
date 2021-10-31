@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  template: `    <header class="header">   
+  template: ` 
+  <header class="header">   
   <h3 class = "utl1">We Care</h3>
   <div>
       <ul>

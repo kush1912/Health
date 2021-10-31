@@ -25,6 +25,7 @@ export class WeCareMappingService{
 * Reschedule Booking
 */
 public getRescheduleBookingsUrl(bookingId:string): string{
+  console.log(bookingId);
   return this.BASE_URL + this.RESCHEDULE_BOOKING + bookingId;
 }
 

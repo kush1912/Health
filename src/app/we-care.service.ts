@@ -27,7 +27,9 @@ registerUser(request: any): Observable<any> {
 * Delete Bookings
 */
 public rescheduleBookings(request:any,bookingId:string): Observable<any> {
+  console.log(bookingId);
   const url = this.mappingService.getRescheduleBookingsUrl(bookingId);
+  console.log(url);
   return this.http.put<any[]>(url,request);
 }
 
