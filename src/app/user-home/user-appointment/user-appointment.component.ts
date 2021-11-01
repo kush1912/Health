@@ -42,7 +42,7 @@ export class UserAppointmentComponent implements OnInit {
 
         if (flag) {
             this.service.deleteBookings(bookingId).subscribe(
-                data => location.reload(),
+                data => this.ngOnInit(), //location.reload(),
                 err => console.log(err)
             )
         }

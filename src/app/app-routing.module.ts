@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: "rescheduleAppointment", component: RescheduleAppointmentComponent },
   { path: "userViewProfile", component: UserProfileComponent },
   { path: "", pathMatch: "full", redirectTo: "/home" },
-  {path:"",pathMatch:"full",redirectTo:"/home"}
+  {path:"**",pathMatch:"full",redirectTo:"/home"}
 ];
 
 @NgModule({

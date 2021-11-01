@@ -3,19 +3,20 @@ import { Injectable,Optional,Inject } from "@angular/core";
 @Injectable()
 
 export class WeCareMappingService{
-    private readonly BASE_URL = 'http://localhost:7000';
-    private readonly REG_USER = '/users';
-    private readonly LOGIN_USER = '/users/login';
-    private readonly REG_COACH = '/coaches';
-    private readonly LOGIN_COACH ='/coaches/login';
-    private readonly COACH_PROFILE='/coaches/';
-    private readonly USER_PROFILE='/users/';
-    private readonly ALL_COACHES='/coaches/all'
-    private readonly COACH_BOOKINGS='/Coaches/booking/';
-    private readonly USER_BOOKINGS='/users/booking/';
-    private readonly MAKE_BOOKING='/users/booking/';
-    private readonly DELETE_BOOKING='/booking/';
-    private readonly RESCHEDULE_BOOKING='/booking/';
+    // private readonly BASE_URL = '';
+    private readonly BASE_URL = '';
+    private readonly REG_USER = 'users';
+    private readonly LOGIN_USER = 'users/login';
+    private readonly REG_COACH = 'coaches';
+    private readonly LOGIN_COACH ='coaches/login';
+    private readonly COACH_PROFILE='coaches/';
+    private readonly USER_PROFILE='users/';
+    private readonly ALL_COACHES='coaches/all'
+    private readonly COACH_BOOKINGS='Coaches/booking/';
+    private readonly USER_BOOKINGS='users/booking/';
+    private readonly MAKE_BOOKING='users/booking/';
+    private readonly DELETE_BOOKING='booking/';
+    private readonly RESCHEDULE_BOOKING='booking/';
 
     constructor(){}
 

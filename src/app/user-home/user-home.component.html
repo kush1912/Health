@@ -1,5 +1,8 @@
 <header-user></header-user>
 
+<div  class = "heading">
+    <h1 style="margin-bottom: -3rem;">Coaches Available: Book an Appointment!</h1>
+</div>
 <div class="bookings-container">
     <div class="booking" [style.width.px]="300" *ngFor="let item of coaches">
         <div [ngSwitch]="item.Gender" class="text-center">
