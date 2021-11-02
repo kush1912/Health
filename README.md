@@ -4,9 +4,10 @@ WeCare is an online Life Coaching application that helps its users to sign up an
 
 
 ### List of Softwares Required:
--Node JS
--Angular
--Visual Studio Code IDE
+- Node JS
+- Angular
+- MongoDB
+- Visual Studio Code IDE
 
 ### Project Implementation
 1. Use npm install command to get all the required packages downloaded.
