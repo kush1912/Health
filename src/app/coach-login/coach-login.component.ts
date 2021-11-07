@@ -12,7 +12,7 @@ import { DataSharingService } from '../Shared/data-sharing.service';
 })
 export class CoachLoginComponent implements OnInit {
   isAuthenticated:boolean=true;
-
+  isCoachAuth!:boolean;
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
@@ -33,6 +33,7 @@ export class CoachLoginComponent implements OnInit {
       result => {
         if(result){
           this.isAuthenticated=true;
+          localStorage.setItem("isCoachAuth","true");
           //this.dataService.setCoachId(this.coachLoginForm.value.CoachId);
           localStorage.setItem("coachId", this.coachLoginForm.value.CoachId);
           this.route.navigate(['/coaches/coachHome'],{skipLocationChange:true});  

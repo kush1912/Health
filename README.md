@@ -15,3 +15,10 @@ WeCare is an online Life Coaching application that helps its users to sign up an
 3. Start the angular application using ng serve.
 
 Link: https://glacial-bastion-59144.herokuapp.com/
+
+### Concepts Implemented
+1. Route Guards
+2. Lazy Loading
+3. Custom Validators
+4. Custom Direcetives - upcoming
+5. Custom Pipes - upcoming
