@@ -33,16 +33,17 @@ export class HeaderCoachComponent implements OnInit {
   }
 
   coachSchedules() {
-      this.route.navigate(['/coaches/coachHome'],{skipLocationChange:true})
+      this.route.navigate(['/coaches/coachHome'],{skipLocationChange:true});
   }
 
   coachViewProfile() {
-      this.route.navigate(['/coaches/coachProfile'],{skipLocationChange:true})
+      this.route.navigate(['/coaches/coachProfile'],{skipLocationChange:true});
   }
 
   logout() {
-      localStorage.setItem("coachId", '')
-      this.route.navigate(['/home'],{skipLocationChange:true})
+      localStorage.setItem("coachId", '');
+      localStorage.setItem("isCoachAuth",'');
+      this.route.navigate(['/home'],{skipLocationChange:true});
   }
 
 }

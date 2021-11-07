@@ -12,6 +12,7 @@ import { DataSharingService } from '../Shared/data-sharing.service';
 export class UserLoginComponent implements OnInit {
 
   isAuthenticated:boolean=true;
+  isUserAuth!:boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +34,7 @@ export class UserLoginComponent implements OnInit {
     this.service.loginUser(this.userLoginForm.value).subscribe(
       result => {
         this.isAuthenticated=true;
+        localStorage.setItem('isUserAuth', 'true');
         localStorage.setItem("userId",this.userLoginForm.value.UserId);
         //this.dataService.setUserId(this.userLoginForm.value.UserId);
         this.route.navigate(['/users/userHome'],{skipLocationChange:true});
