@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeCareService } from '../we-care.service';
 import { Router } from '@angular/router';
 import { DataSharingService } from '../Shared/data-sharing.service';
+import { HeaderUserComponent } from '../header-user.component';
 
 @Component({
   selector: 'app-user-home',
@@ -32,7 +33,7 @@ export class UserHomeComponent implements OnInit {
     console.log(coachId);
     localStorage.setItem("coachId",coachId);
     //this.dataService.setCoachId(coachId);
-    this.route.navigate(['/bookAppointment'],{skipLocationChange:true});
+    this.route.navigate(['/users/bookAppointment']);
   }
 
 }

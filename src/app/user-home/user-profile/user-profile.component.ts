@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   goBack() {
-      this.route.navigate(['/userHome'],{skipLocationChange:true})
+      this.route.navigate(['/users/userHome'],{skipLocationChange:true})
   }
 
 }

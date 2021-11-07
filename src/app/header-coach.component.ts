@@ -33,11 +33,11 @@ export class HeaderCoachComponent implements OnInit {
   }
 
   coachSchedules() {
-      this.route.navigate(['/coachHome'],{skipLocationChange:true})
+      this.route.navigate(['/coaches/coachHome'],{skipLocationChange:true})
   }
 
   coachViewProfile() {
-      this.route.navigate(['/coachProfile'],{skipLocationChange:true})
+      this.route.navigate(['/coaches/coachProfile'],{skipLocationChange:true})
   }
 
   logout() {

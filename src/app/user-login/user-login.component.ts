@@ -35,7 +35,7 @@ export class UserLoginComponent implements OnInit {
         this.isAuthenticated=true;
         localStorage.setItem("userId",this.userLoginForm.value.UserId);
         //this.dataService.setUserId(this.userLoginForm.value.UserId);
-        this.route.navigate(['/userHome'],{skipLocationChange:true});
+        this.route.navigate(['/users/userHome'],{skipLocationChange:true});
       },
       error =>{
         this.isAuthenticated=false;

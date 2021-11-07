@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,11 +33,11 @@ export class HeaderUserComponent implements OnInit {
   }
 
   userViewProfile() {
-      this.route.navigate(['/userProfile'],{skipLocationChange:true})
+      this.route.navigate(['/users/userProfile'],{skipLocationChange:true})
   }
 
   userAppointments() {
-      this.route.navigate(['/userAppointments'],{skipLocationChange:true})
+      this.route.navigate(['/users/userAppointments'],{skipLocationChange:true})
   }
 
   logout() {
