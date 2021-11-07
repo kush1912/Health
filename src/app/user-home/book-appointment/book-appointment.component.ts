@@ -42,7 +42,7 @@ export class BookAppointmentComponent implements OnInit {
   }
 
   goBack(){
-    this.route.navigate(['/userHome']);
+    this.route.navigate(['/userHome'],{skipLocationChange:true});
   }
 
 }

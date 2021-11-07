@@ -32,7 +32,7 @@ export class UserHomeComponent implements OnInit {
     console.log(coachId);
     localStorage.setItem("coachId",coachId);
     //this.dataService.setCoachId(coachId);
-    this.route.navigate(['/bookAppointment']);
+    this.route.navigate(['/bookAppointment'],{skipLocationChange:true});
   }
 
 }
