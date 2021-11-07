@@ -34,7 +34,7 @@ export class UserAppointmentComponent implements OnInit {
     rescheduleAppointment(bookingId: string) {
         localStorage.setItem("bookingId", bookingId)
         //this.dataService.setBookingId(bookingId);
-        this.route.navigate(['/rescheduleAppointment'],{skipLocationChange:true})
+        this.route.navigate(['/users/rescheduleAppointment'],{skipLocationChange:true})
     }
 
     deleteAppointment(bookingId: string) {
@@ -48,6 +48,6 @@ export class UserAppointmentComponent implements OnInit {
         }
     }
   goBack() {
-      this.route.navigate(['/userHome'],{skipLocationChange:true})
+      this.route.navigate(['/users/userHome'],{skipLocationChange:true})
   }
 }

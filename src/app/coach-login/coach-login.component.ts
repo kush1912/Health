@@ -35,7 +35,7 @@ export class CoachLoginComponent implements OnInit {
           this.isAuthenticated=true;
           //this.dataService.setCoachId(this.coachLoginForm.value.CoachId);
           localStorage.setItem("coachId", this.coachLoginForm.value.CoachId);
-          this.route.navigate(['/coachHome'],{skipLocationChange:true});  
+          this.route.navigate(['/coaches/coachHome'],{skipLocationChange:true});  
         }
       },
       error =>{
