@@ -44,6 +44,6 @@ export class CoachSignupComponent implements OnInit {
   }
 
   handleCoachLogin(){
-    this.route.navigate(['/coachLogin']);
+    this.route.navigate(['/coachLogin'],{skipLocationChange:true});
   }
 }

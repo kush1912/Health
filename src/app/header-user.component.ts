@@ -33,18 +33,18 @@ export class HeaderUserComponent implements OnInit {
   }
 
   userViewProfile() {
-      this.route.navigate(['/userProfile'])
+      this.route.navigate(['/userProfile'],{skipLocationChange:true})
   }
 
   userAppointments() {
-      this.route.navigate(['/userAppointments'])
+      this.route.navigate(['/userAppointments'],{skipLocationChange:true})
   }
 
   logout() {
       localStorage.setItem("userId", '')
       localStorage.setItem("coachId", '')
       localStorage.setItem("bookingId", '')
-      this.route.navigate(['/home'])
+      this.route.navigate(['/home'],{skipLocationChange:true})
   }
 
 }

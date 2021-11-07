@@ -49,6 +49,6 @@ export class UserSignupComponent implements OnInit {
   }
   
   handleUserLogin(){
-    this.route.navigate(['/userLogin']);
+    this.route.navigate(['/userLogin'],{skipLocationChange:true});
   }
 }

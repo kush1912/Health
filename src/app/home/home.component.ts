@@ -11,15 +11,15 @@ export class HomeComponent implements OnInit {
   constructor(private route:Router) { }
 
   handleCoachLogin() {
-    this.route.navigate(['/coachLogin'])
+    this.route.navigate(['/coachLogin'],{skipLocationChange:true})
   }
 
   handleCoachSignup() {
-    this.route.navigate(['/coachSignup'])
+    this.route.navigate(['/coachSignup'],{skipLocationChange:true})
   }
 
   handleUserLogin() {
-    this.route.navigate(['/userLogin'])
+    this.route.navigate(['/userLogin'],{skipLocationChange:true})
   }
 
   handleUserSignup() {
